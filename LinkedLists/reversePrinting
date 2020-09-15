@@ -1,0 +1,29 @@
+#include<iostream>
+#include<list>
+using namespace std;
+
+
+void printReverseList(list<int> &l,list<int>::iterator  en){
+	if(l.end()==en)
+	return ;
+	list<int>::iterator  temp=en;
+	printReverseList(l, ++temp );
+	cout<< *en;
+}
+
+
+int main(){
+	list<int> l;
+	for(int i=1;i<=3;i++){ 
+		l.push_back(i);
+	}
+	list<int>::iterator itr=l.begin();
+	cout<<"\nList Being Printed\n";
+	for(itr; itr!=l.end();itr++){
+	cout<<" "<<*itr; 
+	}
+	cout<<"\nRevers\n";
+	printReverseList(l,l.begin());
+	system("pause");
+return 0;
+}
